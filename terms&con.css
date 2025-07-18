@@ -1,0 +1,422 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --primaryColor:#1a1f3f;
+    --secondaryColor:#ff9f43;
+    --fontColor:#1e1e1e;
+    --whiteColor:#ffffff;
+    --greyColor: #1e1e1e;
+    --darkGreyColor : #4b3f72;
+    --sofPurple: #375d7f;
+    --softBlue: #c3e1ff;
+    --softYellow: #ffcc80;
+    --softRed: #e57373;
+  }
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Poppins", sans-serif;
+    --color1: #FFF ;
+    --color2: #181818 ;
+    background: rgb(65,105,225);
+    background: linear-gradient(159deg, rgba(65,105,225,1) 0%, rgba(137,207,240,1) 100%);
+    
+}
+
+
+
+
+
+
+.container {
+    max-width: 1536px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    border: solid red 1px;
+    
+  }
+
+.nav-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    position: relative;
+    background-color: transparent;
+    padding: 12px 20px;
+}
+
+
+
+.nav-bar a:hover,
+.nav-bar a.active{
+    color: #0018f0;
+    font-size: larger;
+}
+
+
+.site-name {
+    position: relative;
+    font-size: 25px;
+    color: var(--color1);
+    text-decoration: none;
+    font-weight: 600;
+  
+}
+
+
+.logo img {
+    width: 190px;
+     height: 90;}
+.menu {display: flex;}
+.menu li {padding-left: 30px;}
+.menu li a {
+  font-size: 18px;
+  color: var(--color1);
+  font-weight: 500;
+  margin-left: 35px;
+  transition: .3s;
+  text-decoration: none;
+}
+.menu li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    transition: 0.15s ease-in-out;
+}
+.menu li a:hover:after {width: 100%;}
+.open-menu , .close-menu {
+    position: absolute;
+    color: var(--sofPurple);
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: none;
+}
+.open-menu {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+.close-menu {
+    top: 20px;
+    right: 20px;
+}
+#check {display: none;}
+@media(max-width: 610px){
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 60%;
+        height: 60vh;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 100;
+        background-color: var(--sofPurple);
+        transition: all 0.2s ease-in-out;
+    }
+    .menu li {margin-top: 40px;}
+    .menu li a {padding: 10px;}
+    .open-menu , .close-menu {display: block;}
+    #check:checked ~ .menu {right: 0;}
+}
+
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+}
+
+/* About Container */
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* Section Styles */
+.about-section {
+  margin-bottom: 40px;
+}
+
+.about-section h2 {
+  font-size: 2rem;
+  color: #34495e;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #2ecc71;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.about-section p {
+  font-size: 1rem;
+  color: var(--color2);
+  margin-bottom: 15px;
+  line-height: 1.8;
+}
+
+/* List Styles */
+.about-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.about-section ul li {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.about-section ul li::before {
+  content: '\2022';
+  color: #2ecc71;
+  font-weight: bold;
+  display: inline-block;
+  width: 10px;
+  margin-left: -20px;
+}
+
+.about-section ul li strong {
+  color: #2c3e50;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .heading {
+      font-size: 2rem;
+  }
+
+  .about-section h2 {
+      font-size: 1.5rem;
+  }
+
+  .about-section p {
+      font-size: 0.9rem;
+  }
+}
+
+.about-icons {
+  font-size: 1.3rem;
+  display: flex; /* Flexbox for icons */
+  margin-top: 20px; /* Spacing above icons */
+  gap: 15px; /* Spacing between icons */
+  cursor: pointer; /* Pointer on hover */
+  }
+  
+  .about-icons i {
+    font-size: 1.3rem;
+  color: rgb(15, 18, 190); /* Icon color */
+  transition: color 0.3s; /* Transition effect */
+  }
+  
+  .about-icons i:hover {
+  color: aqua; /* Change color on hover */
+  }
+
+
+
+.footer {
+background: #415181; /* Background color of the footer */
+padding: 40px 20px; /* Padding for the footer */
+color: #fff; /* Text color */
+}
+.footer-logo{
+  height: 90px;
+  width: 190px;
+}
+.footer-row {
+display: flex; /* Use flexbox for alignment */
+justify-content: space-between; /* Space out the columns evenly */
+flex-wrap: wrap; /* Allow wrapping on smaller screens */
+max-width: 1280px; /* Max width for the footer */
+margin: 0 auto; /* Center the footer */
+}
+
+.footer-col {
+flex: 1; /* Allow columns to grow equally */
+min-width: 200px; /* Set a minimum width for responsiveness */
+margin: 0 20px; /* Margin between columns */
+}
+
+.footer-col h4 {
+color: #fff; /* Header color */
+font-size: 1.2rem; /* Header font size */
+margin-bottom: 10px; /* Spacing below header */
+}
+
+.links {
+list-style: none; /* Remove bullet points */
+padding: 0; /* Remove padding */
+}
+
+.links li {
+margin-bottom: 8px; /* Spacing between links */
+}
+
+.links li a {
+text-decoration: none; /* Remove underline */
+color: #fff; /* Link color */
+transition: color 0.3s; /* Transition effect */
+}
+
+.links li a:hover {
+color: #fff; /* Change color on hover */
+}
+
+.footer-col p {
+margin: 20px 0; /* Margin for the paragraph */
+}
+
+.footer-col form {
+display: flex; /* Use flexbox for the form */
+gap: 10px; /* Space between input and button */
+}
+
+.footer-col input {
+flex: 1; /* Input takes available space */
+height: 40px; /* Input height */
+border-radius: 6px; /* Rounded corners */
+border: 1px solid #7489C6; /* Border color */
+padding-left: 10px; /* Padding inside the input */
+color: #050505; /* Input text color */
+}
+
+.footer-col input::placeholder {
+color: #ccc; /* Placeholder color */
+}
+
+.footer-col button {
+background: #fff; /* Button background */
+border: none; /* No border */
+padding: 10px 15px; /* Button padding */
+border-radius: 6px; /* Rounded corners */
+cursor: pointer; /* Pointer on hover */
+transition: background 0.2s; /* Transition effect */
+}
+
+.footer-col button:hover {
+background: #cecccc; /* Change background on hover */
+}
+
+.icons {
+display: flex; /* Flexbox for icons */
+margin-top: 20px; /* Spacing above icons */
+gap: 15px; /* Spacing between icons */
+cursor: pointer; /* Pointer on hover */
+}
+
+.icons i {
+color: #fff; /* Icon color */
+transition: color 0.3s; /* Transition effect */
+}
+
+.icons i:hover {
+color: aqua; /* Change color on hover */
+}
+@media screen and (max-width: 415px) {
+  /* Logo */
+  .about-container{
+      width: 90%;
+  }
+  .heading  {
+    font-size: 1.2rem;
+  }
+    .about-section h2 {
+      font-size: 0.8rem;
+    }
+    .about-section p{
+      font-size: 0.6rem;
+    }
+    .about-section li {
+      font-size: 0.6rem;
+    }
+    .about-section h3 {
+      font-size: 0.7rem;
+    }
+  .logo img {
+    width: 95px;
+    height: 50px;
+  }
+  .footer-col input {
+    font-size: 13px;
+    font-weight: 600;
+    height: 25px;
+    width: 60px;
+  }
+  .links li a {
+    font-size: 0.5rem;
+  }
+  .footer-col button,
+  .footer-col p {
+    font-size: 0.3rem;
+  }
+  .footer-col h4 {
+    font-size: 0.8rem;
+  }
+  /* Footer */
+  .footer img {
+    height: 45px;
+    width: 90px;
+  }
+}
+
+@media screen and (min-width: 416px) and (max-width: 768px) {
+  /* Logo */
+  .about-container{
+      width: 90%;
+  }
+  .heading  {
+    font-size: 1.2rem;
+  }
+    .about-section h2 {
+      font-size: 1.2rem;
+    }
+    .about-section li {
+      font-size: 0.9rem;
+    }
+  .logo img {
+    width: 120px;
+    height: 60px;
+  }
+
+  .footer-col input {
+    font-size: 15px;
+    font-weight: 600;
+    height: 28px;
+    width: 100px;
+  }
+  .links li a {
+    font-size: 0.7rem;
+  }
+  .footer-col button,
+  .footer-col p {
+    font-size: 0.6rem;
+  }
+
+
+  .footer-col h4 {
+    font-size: 0.9rem;
+  }
+  /* Footer */
+  .footer img {
+    height: 50px;
+    width: 100px;
+  }
+}
+

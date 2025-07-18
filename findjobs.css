@@ -1,0 +1,990 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --primaryColor:#1a1f3f;
+    --secondaryColor:#ff9f43;
+    --fontColor:#1e1e1e;
+    --whiteColor:#ffffff;
+    --greyColor: #1e1e1e;
+    --darkGreyColor : #4b3f72;
+    --sofPurple: #375d7f;
+    --softBlue: #c3e1ff;
+    --softYellow: #ffcc80;
+    --softRed: #e57373;
+  }
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+body {
+    font-family: "Poppins", sans-serif;
+    --color1: #FFF ;
+    --color2: #181818 ;
+    
+    background: rgb(255, 253, 253);
+    background: linear-gradient(159deg, rgb(190, 190, 190) 0%, rgb(242, 242, 242) 100%);
+    
+}
+
+/* Dropdown Menu */
+.nav-bar .dropdown {
+  position: relative;
+}
+
+.nav-bar .dropdown-toggle {
+  cursor: pointer;
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  padding: 10px 15px;
+}
+
+.nav-bar .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgb(45, 77, 173);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  z-index: 1000;
+}
+
+.nav-bar .dropdown-menu li {
+  list-style: none;
+  color: #000;
+}
+
+.nav-bar .dropdown-menu li a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #000000;
+  font-size: 0.9rem;
+}
+
+.nav-bar .dropdown-menu li a:hover {
+  background-color: aqua;
+}
+
+/* Show dropdown on hover */
+.nav-bar .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+
+
+.nav-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    position: relative;
+    background-color: transparent;
+    padding: 12px 20px;
+}
+
+
+
+.nav-bar a:hover,
+.nav-bar a.active{
+    color: #f00000;
+    font-size: larger;
+}
+
+
+.site-name {
+    position: relative;
+    font-size: 25px;
+    color: var(--color1);
+    text-decoration: none;
+    font-weight: 600;
+  
+}
+
+
+.logo img ,
+.footer-logo{
+    width: 190px;
+    height: 90px;
+}
+.menu {display: flex;}
+.menu li {padding-left: 30px;}
+.menu li a {
+  font-size: 18px;
+  color: var(--color2);
+  font-weight: 500;
+  margin-left: 35px;
+  transition: .3s;
+  text-decoration: none;
+}
+.menu li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    transition: 0.15s ease-in-out;
+}
+.menu li a:hover:after {width: 100%;}
+.open-menu , .close-menu {
+    position: absolute;
+    color: var(--color2);
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: none;
+}
+.open-menu {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+.close-menu {
+    top: 20px;
+    right: 20px;
+}
+
+#check {display: none;}
+@media(max-width: 610px){
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 45%;
+        height: 45vh;
+        position: fixed;
+        top: 0;
+        border-radius: 15px;
+        right: -100%;
+        z-index: 100;
+        background-color: rgb(20, 72, 214);
+        transition: all 0.2s ease-in-out;
+    }
+    .menu li {margin-top: 40px;}
+    .menu li a {padding: 10px;}
+    .open-menu , .close-menu {display: block;}
+    #check:checked ~ .menu {right: 0;}
+}
+
+
+.heading h1{
+  font-size: 56px;
+  color: var(--greyColor);
+}
+/* Input field */
+.search-input {
+    border: none;
+    padding: 15px 20px;
+    font-size: 14px;
+    flex: 1;
+    outline: none;
+    color: #333;
+}
+
+/* Placeholder text style */
+.search-input::placeholder {
+    color: #aaa;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 400px;
+    width: 100%;
+}
+
+.bookmark-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+    z-index: -1;
+  }
+  .card{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 3%;
+    margin: 0 1%;
+    background-color: var(--whiteColor);
+    line-height: 1.5;
+    gap: 1.5rem;
+    box-shadow: rgba(0,0,0,0.16) 0px 1px 4px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .card:hover{
+    box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
+  }
+  .card-left{
+    width: 10%;
+    min-width: 50px;
+    display: flex;
+    justify-content: center;
+    border-radius: 20%;
+  }
+  
+  .card-left img{
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+    padding: 0.5rem;
+  }
+  
+  .card-center{
+    width: 50%;
+  }
+  
+  .card-loc, .card-sub{
+    font-size: 13px;
+    color: var(--darkGreyColor);
+  }
+  
+  
+  .card-sub{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .card-sub p{
+    display: flex;
+    padding: 0 0.5rem 0 0;
+    align-items: center;
+  }
+  
+  .class-detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .card-right{
+    width: 15%;
+  }
+  
+  img{
+    width: 50px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card-tag a{
+    color: var(--fontColor);
+    font-size: 13px;
+  }
+  
+  .card-salary{
+    padding: 0.5rem 0;
+    color: var(--primaryColor);
+  }
+  
+  .card-salary span{
+    color: var(--fontColor);
+    font-size: 13px;
+  }
+
+
+  .apply-btn{
+    color: white;
+    font-size: 1.1rem;
+    bottom: 10px;
+    text-decoration: none;
+    padding-top: 20px;
+    padding: 0 8px;
+    background-color: #0bbbc1;
+    border: 4px solid;
+    border-image: linear-gradient(rgb(52, 154, 205), rgb(159, 159, 217)) 1;
+    clip-path: inset(0 round 8px);
+  }
+  .search{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    background-color: none;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    position: relative;
+    background-color: var(--whiteColor);
+  }
+  
+  .search input {
+    width: 90%;
+    border: none;
+  }
+  
+  .btn-search{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    padding: 0 5%;
+    border: none;
+    background-color: var(--primaryColor);
+    color: var(--whiteColor);
+    font-size: 18px;
+    border-radius: 20px;
+    box-shadow: rgba(0,0,0,16) 0px 1px 4px;
+    cursor: pointer;
+  }
+  .btn-search:hover{
+    background-color: aqua;
+    color: var(--fontColor);
+  }
+  
+  /*popup css */
+ 
+  .popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+.whatsapp-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #25D366;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.whatsapp-btn:hover {
+    background-color: #128C7E;
+}
+
+  .filter-wrapper{
+    margin: 1rem 0;
+    font-size: 14px;
+    
+  }
+  
+  .filter{
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    margin: 0.5rem 0;
+  }
+  
+  .btn-filter{
+    width: 100px;
+    padding: 0.5rem;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--whiteColor);
+    cursor: pointer;
+  }
+  .btn-filter:hover{
+    background-color: var(--primaryColor);
+    color: var(--whiteColor);
+    box-shadow: rgba(0,0,0,0.24);
+  }
+  .heading-section {
+    width: 100%;
+    min-height: 30vh;
+    padding: 30px 200px 30px;
+    position: relative; /* Changed from fixed */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    transition: 1s;
+    }
+    .listing-section {
+      width: 100%;
+      min-height: 70vh;
+      padding: 0px 80px 100px;
+      position: relative; /* Changed from fixed */
+      display: flex;
+      flex-direction: column; /* Stack elements vertically */
+      align-items: center; /* Center items horizontally */
+      justify-content: center; /* Center items vertically */
+      transition: 1s;
+      }
+  .findjobs-section {
+    width: 100%;
+    min-height: 70vh;
+    padding: 150px 100px 100px;
+    position: relative; /* Changed from fixed */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    transition: 1s;
+    }
+    
+    .jobs-container {
+    display: grid;
+    grid-template-columns: repeat(2,1fr); /* Responsive grid */
+    grid-gap: 50px; /* Reduced spacing for balance */
+    width: 100%; /* Make the grid span full width */
+    max-width: 1200px; /* Limit max width */
+    
+    }
+    .bursaries-section {
+      max-width: 900px;
+      margin: 50px auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+  }
+  
+  .bursaries-section h2 {
+      font-size: 1.5rem;
+      color: #34495e;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #2ecc71;
+      display: inline-block;
+      padding-bottom: 5px;
+  }
+  .bursaries-section p {
+      font-size: 0.8rem;
+      color: #555;
+      margin-bottom: 20px;
+      line-height: 1.2;
+  }
+  
+  .bursaries-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+  }
+  
+  .bursaries-list li {
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border: 1px solid #e1e1e1;
+      border-radius: 8px;
+      text-align: left;
+  }
+  
+  .bursaries-list h3 {
+      font-size: 1.2rem;
+      color: #2c3e50;
+      margin-bottom: 10px;
+  }
+  
+  .bursaries-list p {
+      font-size: 0.8rem;
+      color: #555;
+  }
+  .apply-link {
+      display: inline-block;
+      margin-top: 4px;
+      color: #2ecc71;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+  }
+  .apply-link:hover {
+      color: #27ae60;
+  }
+
+
+.pagination {
+  display: flex;
+  align-items: center;
+  background: #FFFF;
+  color: #383838;
+  padding: 10px 40px;
+  border-radius: 6px;
+}
+
+.ul {
+  display: flex;
+  margin: 0 20px; /* Adjusted margin for spacing consistency */
+  padding: 0; /* Reset padding */
+  list-style: none; /* Remove bullets */
+}
+
+.ul li {
+  display: inline-block;
+  margin: 0 10px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 35px;
+  background-position: 0 -35px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: 0.5s;
+}
+
+
+
+.ul li:hover {
+  background-color: #b3b3b3; /* Slightly darker background on hover */
+  transform: scale(1.1); /* Add subtle zoom effect */
+}
+
+.ul li.active{
+  color: #fff;
+  background-image: linear-gradient(#45ffc4,#4596ff);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.btn1, .btn2 {
+  display: inline-flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #383838;
+  background: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.btn1 img, .btn2 img {
+  width: 20px;
+}
+
+.btn1 img {
+  margin-right: 15px;
+  transform: rotate(180deg);
+}
+
+.btn2 img {
+  margin-left: 15px;
+}
+
+.btn1:hover, .btn2:hover {
+  color: #007BFF; 
+}
+
+@media screen and (max-width: 415px) {
+  .pagination {
+    padding: 6px 11px; 
+  }
+
+  .ul {
+    margin: 0 6px; 
+  }
+
+  .ul li {
+    width: 16px;
+    height: 16px; 
+    font-size: 9px; 
+    line-height: 16px; 
+    margin: 0 4px; 
+  }
+
+  .btn1, .btn2 {
+    font-size: 9px;
+  }
+
+  .btn1 img, .btn2 img {
+    width: 10px; 
+  }
+
+  .btn1 img {
+    margin-right: 6px;
+  }
+
+  .btn2 img {
+    margin-left: 6px;
+  }
+}
+
+
+
+.footer {
+background: #252629; /* Background color of the footer */
+padding: 40px 10px; /* Padding for the footer */
+color: #ffffff; /* Text color */
+}
+
+.footer-row {
+display: flex; /* Use flexbox for alignment */
+justify-content: space-between; /* Space out the columns evenly */
+flex-wrap: wrap; /* Allow wrapping on smaller screens */
+max-width: 100%; /* Max width for the footer */
+margin: 0 auto; /* Center the footer */
+}
+
+.footer-col {
+flex: 1; /* Allow columns to grow equally */
+min-width: 200px; /* Set a minimum width for responsiveness */
+margin: 0 20px; /* Margin between columns */
+}
+
+.footer-col h4 {
+color: #fff; /* Header color */
+font-size: 1.2rem; /* Header font size */
+margin-bottom: 10px; /* Spacing below header */
+}
+.links {
+list-style: none; /* Remove bullet points */
+padding: 0; /* Remove padding */
+}
+
+.links li {
+margin-bottom: 8px; /* Spacing between links */
+}
+
+.links li a {
+text-decoration: none; /* Remove underline */
+color: #ffffff; /* Link color */
+transition: color 0.3s; /* Transition effect */
+}
+
+.links li a:hover {
+color: #fff; /* Change color on hover */
+}
+
+.footer-col p {
+margin: 20px 0; /* Margin for the paragraph */
+}
+
+.footer-col form {
+display: flex; /* Use flexbox for the form */
+gap: 10px; /* Space between input and button */
+}
+
+.footer-col input {
+flex: 1; /* Input takes available space */
+height: 40px; /* Input height */
+border-radius: 6px; /* Rounded corners */
+border: 1px solid #7489C6; /* Border color */
+padding-left: 10px; /* Padding inside the input */
+color: #050505; /* Input text color */
+}
+
+.footer-col input::placeholder {
+color: #ccc; /* Placeholder color */
+}
+
+.footer-col button {
+background: #fff; /* Button background */
+border: none; /* No border */
+padding: 10px 15px; /* Button padding */
+border-radius: 6px; /* Rounded corners */
+cursor: pointer; /* Pointer on hover */
+transition: background 0.2s; /* Transition effect */
+}
+.footer-col button:hover {
+background: #cecccc; /* Change background on hover */
+}
+
+.icons {
+display: flex; /* Flexbox for icons */
+margin-top: 20px; /* Spacing above icons */
+gap: 15px; /* Spacing between icons */
+cursor: pointer; /* Pointer on hover */
+}
+
+.icons i {
+color: #afb6c7; /* Icon color */
+transition: color 0.3s; /* Transition effect */
+}
+
+.icons i:hover {
+color: #fff; /* Change color on hover */
+}
+
+@media screen and (max-width: 415px) {
+  /* Logo */
+  .logo img {
+    width: 95px;
+    height: 50px;
+  }
+
+  /* Text Sizes */
+  .heading h1 {
+    padding-bottom: 10px;
+    font-size: 0.8rem;
+  }
+
+  .filter-wrapper{
+    width: 90%;
+  }
+  .footer-col input {
+    font-size: 13px;
+    font-weight: 600;
+    height: 25px;
+    width: 60px;
+  }
+
+  .btn-filter,
+  .card-center h3,
+  .card-tag,
+  .apply-btn,
+  .bursaries-list h3 {
+    font-size: 0.6rem;
+  }
+
+  .card-sub p,
+  .card-center p,
+  .links li a {
+    font-size: 0.5rem;
+  }
+
+  .class-detail p,
+  .bursaries-section p,
+  .footer-col button,
+  .footer-col p {
+    font-size: 0.3rem;
+  }
+
+  .card-salary {
+    font-size: 0.4rem;
+  }
+
+  .footer-col h4 {
+    font-size: 0.8rem;
+  }
+
+  /* Card Elements */
+  .card-left img {
+    width: 50px;
+  }
+
+  .card-left .yellow-bg {
+    border: solid 1px green;
+  }
+
+  .card {
+    gap: 0.4rem;
+  }
+
+  /* Section Spacing */
+  .heading-section {
+    min-height: 20vh;
+    padding: 30px 20px;
+  }
+
+  .listing-section,
+  .jobs-container {
+    padding: 10px;
+    grid-gap: 10px;
+  }
+
+  /* Bursaries Section */
+  .bursaries-section h2 {
+    font-size: 0.7rem;
+  }
+
+  .apply-link {
+    font-size: 0.7rem;
+  }
+
+  /*pagination css */
+  .pagination {
+    padding: 6px 11px; 
+  }
+
+  .ul {
+    margin: 0 6px; 
+  }
+
+  .ul li {
+    width: 16px;
+    height: 16px; 
+    font-size: 9px; 
+    line-height: 16px; 
+    margin: 0 4px; 
+  }
+
+  .btn1, .btn2 {
+    font-size: 9px;
+  }
+
+  .btn1 img, .btn2 img {
+    width: 10px; 
+  }
+
+  .btn1 img {
+    margin-right: 6px;
+  }
+
+  .btn2 img {
+    margin-left: 6px;
+  }
+
+  /* Footer */
+  .footer img {
+    height: 45px;
+    width: 90px;
+  }
+}
+
+
+
+@media screen and (min-width: 416px) and (max-width: 768px) {
+  /* Logo */
+  .logo img {
+    width: 120px;
+    height: 60px;
+  }
+
+  /* Text Sizes */
+  .heading h1 {
+    padding-bottom: 12px;
+    font-size: 1rem;
+  }
+  .filter-wrapper{
+    width: 90%;
+  }
+  .footer-col input {
+    font-size: 15px;
+    font-weight: 600;
+    height: 28px;
+    width: 100px;
+  }
+
+  .btn-filter,
+  .card-center h3,
+  .card-tag,
+  .apply-btn,
+  .bursaries-list h3 {
+    font-size: 0.8rem;
+  }
+
+  .card-sub p,
+  .card-center p,
+  .links li a {
+    font-size: 0.7rem;
+  }
+
+  .class-detail p,
+  .bursaries-section p,
+  .footer-col button,
+  .footer-col p {
+    font-size: 0.6rem;
+  }
+
+  .card-salary {
+    font-size: 0.7rem;
+  }
+
+  .footer-col h4 {
+    font-size: 0.9rem;
+  }
+
+  /* Card Elements */
+  .card-left img {
+    width: 80px;
+  }
+
+  .card-left .yellow-bg {
+    border: solid 2px green;
+  }
+
+  .card {
+    gap: 0.8rem;
+  }
+
+  /* Section Spacing */
+  .heading-section {
+    min-height: 22vh;
+    padding: 35px 25px;
+  }
+
+  .listing-section,
+  .jobs-container {
+    padding: 15px;
+    grid-gap: 15px;
+  }
+
+  /* Bursaries Section */
+  .bursaries-section h2 {
+    font-size: 0.9rem;
+  }
+
+  .apply-link {
+    font-size: 0.9rem;
+  }
+
+    /*pagination css */
+    .pagination {
+      padding: 8px 15px; 
+    }
+  
+    .ul {
+      margin: 0 8px; 
+    }
+  
+    .ul li {
+      width: 22px;
+      height: 22px; 
+      font-size: 12px; 
+      line-height: 22px; 
+      margin: 0 7px; 
+    }
+  
+    .btn1, .btn2 {
+      font-size: 12px;
+    }
+  
+    .btn1 img, .btn2 img {
+      width: 15px; 
+    }
+  
+    .btn1 img {
+      margin-right: 8px;
+    }
+  
+    .btn2 img {
+      margin-left: 8px;
+    }
+
+  /* Footer */
+  .footer img {
+    height: 50px;
+    width: 100px;
+  }
+}
+
